@@ -5,19 +5,19 @@ blue: 669999
 dk blgrn: 003333 */
 
 body {
-  background-color: #007991;
+  background-color: #c2dde6;
 }
 
 h1, li, p, button {
   font-family: 'Ubuntu', sans-serif;
-  color: #bcd8c1;
+  color: #431c5d;
 }
 
 #page {
   margin: 0 auto;
   padding-top: 1em;
   max-width: 500px;
-  background-color: #007991;
+  background-color: #c2dde6;
   text-align: center;
   border-radius: 15px;
 }
@@ -43,7 +43,7 @@ ul {
 }
 
 li {
-  color: #033f5f;
+  color: #431c5d;
   font-size: 1.4em;
   min-height: 1.2em;
   list-style: none;
@@ -51,7 +51,7 @@ li {
   border-radius: 5px;
   padding: .4em .4em .3em;
   margin-bottom: .3em;
-  background: #8fb4b4;
+  background: #bccbde;
   font-weight: 600;
   word-wrap: break-word;
   user-select:
@@ -59,7 +59,7 @@ li {
 
 li a {
   float: left;
-  color: #de7c7c;
+  color: #431c5d;
   text-shadow: 1px 1px 2px #033f5f;
   margin-top: -.1em;
   word-break: break-all;
@@ -88,32 +88,33 @@ span {
   -webkit-border-radius: 5px;
   padding: .8em 0;
   border-radius: 5px;
-  background: #ddd;
+  background: #e6e9f0;
   color: #222;
   width: 72%;
   text-align: center;
   margin-left: 0;
-  border: 2px solid #ddd;
+  border: 2px solid #e6e9f0;
+  outline: none;
 }
 
 #addButton {
   font-family: 'Ubuntu', sans-serif;
-  background: #8fb4b4;
+  background: #bccbde;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   width: 24%;
   cursor:pointer;
   padding: .8em 0;
-  border: .15em solid #8fb4b4;
+  border: .15em solid #bccbde;
   margin-right: 0;
   margin-left: 1%;
-  color: #033f5f;
+  color: #431c5d;
   font-weight: 600;
 }
 
 #itemDescription:focus {
-    border: 2px solid #fff;
-    background: #fff;
+    border: 2px solid #e6e9f0;
+    background: #fe6e9f0;
 }
 
 .loading {
@@ -121,7 +122,7 @@ span {
 }
 
 .error {
-  color: #db9494;
+  color: #e05915;
   font-weight: bold;
   text-shadow: 1px 1px 2px #033f5f;
 }
