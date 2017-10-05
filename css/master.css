@@ -1,9 +1,3 @@
-/* http://www.colorcombos.com/color-schemes/36/ColorCombo36.html
-red: FF3333
-grey: 999999
-blue: 669999
-dk blgrn: 003333 */
-
 body {
   background-color: #c2dde6;
 }
@@ -59,14 +53,14 @@ li {
 
 li a {
   float: left;
-  color: #431c5d;
+  color: #e05915;
   text-shadow: 1px 1px 2px #033f5f;
   margin-top: -.1em;
   word-break: break-all;
 }
 
 a {
-  color: #666;
+  color: #e05915;
   text-decoration: none;
   margin-right: .3em;
 }
@@ -77,6 +71,7 @@ li span a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-shadow: none;
 }
 
 span {
@@ -122,12 +117,10 @@ span {
 }
 
 .error {
-  color: #e05915;
+  color: #431c5d;
   font-weight: bold;
-  text-shadow: 1px 1px 2px #033f5f;
 }
 
 .placeholder {
-  /*height: 1.2em;*/
   background: #033f5f;
 }
