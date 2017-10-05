@@ -1,0 +1,132 @@
+/* http://www.colorcombos.com/color-schemes/36/ColorCombo36.html
+red: FF3333
+grey: 999999
+blue: 669999
+dk blgrn: 003333 */
+
+body {
+  background-color: #007991;
+}
+
+h1, li, p, button {
+  font-family: 'Ubuntu', sans-serif;
+  color: #bcd8c1;
+}
+
+#page {
+  margin: 0 auto;
+  padding-top: 1em;
+  max-width: 500px;
+  background-color: #007991;
+  text-align: center;
+  border-radius: 15px;
+}
+
+#header {
+  text-align: center;
+}
+
+ul {
+  width: 80%;
+  margin: 0 10% 10%;
+}
+
+#newItemForm {
+  width: 80%;
+  margin: 0 10%;
+  padding: 0;
+  margin-bottom: 3em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  color: #033f5f;
+  font-size: 1.4em;
+  min-height: 1.2em;
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  padding: .4em .4em .3em;
+  margin-bottom: .3em;
+  background: #8fb4b4;
+  font-weight: 600;
+  word-wrap: break-word;
+  user-select:
+}
+
+li a {
+  float: left;
+  color: #de7c7c;
+  text-shadow: 1px 1px 2px #033f5f;
+  margin-top: -.1em;
+  word-break: break-all;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+  margin-right: .3em;
+}
+
+li span a {
+  display: block;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+span {
+  z-index: 100;
+}
+
+#itemDescription {
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-border-radius: 5px;
+  padding: .8em 0;
+  border-radius: 5px;
+  background: #ddd;
+  color: #222;
+  width: 72%;
+  text-align: center;
+  margin-left: 0;
+  border: 2px solid #ddd;
+}
+
+#addButton {
+  font-family: 'Ubuntu', sans-serif;
+  background: #8fb4b4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 24%;
+  cursor:pointer;
+  padding: .8em 0;
+  border: .15em solid #8fb4b4;
+  margin-right: 0;
+  margin-left: 1%;
+  color: #033f5f;
+  font-weight: 600;
+}
+
+#itemDescription:focus {
+    border: 2px solid #fff;
+    background: #fff;
+}
+
+.loading {
+  margin-top: 3em;
+}
+
+.error {
+  color: #db9494;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #033f5f;
+}
+
+.placeholder {
+  /*height: 1.2em;*/
+  background: #033f5f;
+}
