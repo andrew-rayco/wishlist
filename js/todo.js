@@ -14,12 +14,32 @@ $(function() {
 
   // loading
   var $load = $('.loading')
-  var $sticks = $('.sticks-and-stones')
+  var insult = 'an igg'
+  var insultArray = [
+    'a nincompoop',
+    'simply lovely',
+    'a bloody drongo',
+    'pure excellence',
+    'a butterdove',
+    'a tasty piece',
+    'hungry',
+    'a little ripper',
+    'an apple turnover',
+    'a passionate F1 fan',
+    'sweet as your Nanna',
+    'an angel in pants',
+    'a whispy wormwatcher',
+    'spotted prancer',
+    'loose bladdered antiquarian',
+    'bucktoothed uphill gardener'
+  ]
+  insultNum = Math.floor(Math.random() * insultArray.length)
+  insult = insultArray[insultNum]
+  $load.append('<p>Maria is ' + insult + '.</p>')
 
   database.ref('list').on('value', function(snapshot) {
     // snapshot.val() gives the current state of the db
     $load.hide()
-    $sticks.hide()
     displayItems(snapshot.val())
   })
 
