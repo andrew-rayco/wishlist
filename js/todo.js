@@ -14,10 +14,12 @@ $(function() {
 
   // loading
   var $load = $('.loading')
+  var $sticks = $('.sticks-and-stones')
 
   database.ref('list').on('value', function(snapshot) {
     // snapshot.val() gives the current state of the db
     $load.hide()
+    $sticks.hide()
     displayItems(snapshot.val())
   })
 
