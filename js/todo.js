@@ -47,10 +47,12 @@ $(function() {
     // Add new item to list
     $newItemForm.on('submit', function(e) {
       e.preventDefault()
-      if ($textInput.val() !== '') {
 
-        var newText = $textInput.val()
+      var newText = $textInput.val()
 
+      // If input isn't empty and not currently editing existing item, add new item
+      if (newText !== '' && $('#addButton').val() !== 'Edit') {
+        // Check if content is a link. If so, make clickable
         if (validUrl(newText)) {
           newText = '<a href="' + newText + '">' + newText + '</a>'
         }
@@ -62,6 +64,13 @@ $(function() {
         $textInput.val('')
 
         addItemToDb(newText)
+
+      } else if ($('#addButton').val() === 'Edit') {
+        // Edit existing item
+        editItem(entryToBeUpdated, $textInput.val())
+        $textInput.val('')
+        $('#addButton').val('Note it')
+
       } else {
         var $newMsg = $($errorMsg).hide().fadeIn(1000)
         $form.prepend($newMsg)
@@ -82,7 +91,6 @@ $(function() {
       e.preventDefault()
       $(this).parent().fadeOut(400)
       database.ref('list/' + e.target.id).remove()
-      console.log(e.target.id)
     })
 
   }
@@ -90,16 +98,20 @@ $(function() {
 
   function addItemToDb(newListItem) {
     // Get a key for a new Post.
-    var newPostKey = firebase.database().ref().child('posts').push().key
+    var newPostKey = database.ref().child('list').push().key
     var singleItem = {
       item: newListItem,
-      id: newPostKey,
-      order: todosArray.length
+      id: newPostKey
     }
 
     database.ref('list/' + newPostKey).set(singleItem)
   }
 
+  function editItem(id, updatedItem) {
+    database.ref('list/' + id).update({ item: updatedItem, id: id })
+  }
+
+  // Check if string is a url (and a valid one)
   function validUrl(str) {
     var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
     if(!regex .test(str)) {
@@ -108,30 +120,25 @@ $(function() {
       return true
     }
   }
-
-  // Sort items using jQuery UI
-  var sortEventHandler = function(event, ui) {
-    console.log(event)
-    console.log(ui)
-
-    var arrayToBeSorted = $('a')
-    var listValues = []
-
-    for (var i = 0; i < arrayToBeSorted.length; i++) {
-      listValues.push(arrayToBeSorted[i].id)
-      console.log(arrayToBeSorted[i].id)
-    }
-    console.log(listValues)
-  }
-
-  // $("ul").sortable({change: sortEventHandler, placeholder: 'placeholder'})
-
-  // $("ul").disableSelection()
-
-  // Refresh button
-  $('.refresh').click(function(e) {
-    e.preventDefault()
-    location.reload(true)
+  
+  // edit entries
+  $('ul').on('click', '.todo-item>span', function(e) {
+    entryToBeUpdated = e.target.previousSibling.id
+    entryText = e.target.innerHTML
+    updateInput(entryToBeUpdated, entryText)
   })
+
+  $('ul').on('click', '.todo-item', function(e) {
+    entryText = e.currentTarget.innerText.slice(1)
+    if (e.target.firstChild.id !== undefined) {
+      entryToBeUpdated = e.target.firstChild.id
+      updateInput(entryToBeUpdated, entryText)
+    }
+  })
+
+  function updateInput(entryToBeUpdated, existingText) {
+    $('#itemDescription').val(existingText)
+    $('#addButton').val('Edit')
+  }
 
 })
