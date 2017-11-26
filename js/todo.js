@@ -1,5 +1,19 @@
 $(function() {
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVrOJ7eM1cpAJFuNDsS6m5Yqi87B3yZn8",
+    authDomain: "wishlist-fur-uns.firebaseapp.com",
+    databaseURL: "https://wishlist-fur-uns.firebaseio.com",
+    projectId: "wishlist-fur-uns",
+    storageBucket: "",
+    messagingSenderId: "835879506683"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  
+
   var $newItemForm = $('#newItemForm');
   var $textInput = $('input:text');
   var $form = $('form');
@@ -10,7 +24,6 @@ $(function() {
   var $listItems = $('li');
   var $listItemText = $('li a').text;
   var todosArray = []
-  var database = firebase.database();
 
 
   database.ref('list').on('value', function(snapshot) {
